@@ -18,7 +18,8 @@ public class Basket {
 		List<Fruit> fruits = new ArrayList<Fruit>();
 
 		boolean selection = false;
-		double totalPrice = 0;
+
+		double sum = 0;
 
 		Fruit apple = new Fruit("Apple", 0.25);
 		Fruit banana = new Fruit("Banana", 0.15);
@@ -40,30 +41,30 @@ public class Basket {
 			item = scanner.next();
 
 			if (item.equalsIgnoreCase("a")) {
-				totalPrice = totalPrice + apple.getPrice();
+
 				System.out.print("Apple selected");
 				selection = true;
 				fruits.add(apple);
 			} else if (item.equalsIgnoreCase("b")) {
-				totalPrice = totalPrice + banana.getPrice();
+
 				System.out.print("Banana selected");
 				selection = true;
 
 				fruits.add(banana);
 			} else if (item.equalsIgnoreCase("o")) {
-				totalPrice = totalPrice + orange.getPrice();
+
 				System.out.print("Orange selected");
 				selection = true;
 
 				fruits.add(orange);
 			} else if (item.equalsIgnoreCase("l")) {
-				totalPrice = totalPrice + lemon.getPrice();
+
 				System.out.print("Lemon selected");
 				selection = true;
 
 				fruits.add(lemon);
 			} else if (item.equalsIgnoreCase("p")) {
-				totalPrice = totalPrice + peach.getPrice();
+
 				System.out.print("Peach selected");
 				selection = true;
 
@@ -85,31 +86,31 @@ public class Basket {
 					item = scanner.next();
 
 					if (item.equalsIgnoreCase("a")) {
-						totalPrice = totalPrice + apple.getPrice();
+
 						System.out.print("Apple selected");
 						selection = true;
 
 						fruits.add(apple);
 					} else if (item.equalsIgnoreCase("b")) {
-						totalPrice = totalPrice + banana.getPrice();
+
 						System.out.print("Banana selected");
 						selection = true;
 
 						fruits.add(banana);
 					} else if (item.equalsIgnoreCase("o")) {
-						totalPrice = totalPrice + orange.getPrice();
+
 						System.out.print("Orange selected");
 						selection = true;
 
 						fruits.add(orange);
 					} else if (item.equalsIgnoreCase("l")) {
-						totalPrice = totalPrice + lemon.getPrice();
+
 						System.out.print("Lemon selected");
 						selection = true;
 
 						fruits.add(lemon);
 					} else if (item.equalsIgnoreCase("p")) {
-						totalPrice = totalPrice + peach.getPrice();
+
 						System.out.print("Peach selected");
 						selection = true;
 
@@ -129,8 +130,9 @@ public class Basket {
 			if (answer.equalsIgnoreCase("y")) {
 				for (Fruit fruit : fruits) {
 					System.out.println("Item: " + fruit.getName() + " £" + fruit.getPrice());
+					sum += fruit.getPrice();
 				}
-				System.out.println("Your total is : £" + f.format(totalPrice));
+				System.out.println("Your total is : £" + f.format(sum));
 
 			}
 		}

@@ -2,11 +2,9 @@ package com.fdmgroup.basket;
 
 import static org.junit.Assert.*;
 
-
 import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
-
 
 public class BasketTest {
 
@@ -15,82 +13,86 @@ public class BasketTest {
 	@Test
 	public void Test_AddOneAppleToBasket() {
 
-		//Arrange 
+		// Arrange
 		List<Fruit> fruits = new ArrayList<Fruit>();
-		double totalPrice = 0;
+		double sum = 0;
 
-		//Act
+		// Act
 		Fruit apple = new Fruit("Apple", 0.25);
-		
-		totalPrice = totalPrice + apple.getPrice();
-		
+
 		fruits.add(apple);
-		//Assert
-		
-		assertEquals(0.25, totalPrice, 0.0);
+
+		for (Fruit fruit : fruits) {
+			sum += fruit.getPrice();
+		}
+		// Assert
+
+		assertEquals(0.25, sum, 0.0);
 	}
 
 	@Test
 	public void Test_AddOneAppleAndOneBananaToBasket() {
 
-		//Arrange
+		// Arrange
 		List<Fruit> fruits = new ArrayList<Fruit>();
-		double totalPrice = 0;
-		
-		//Act
+		double sum = 0;
+
+		// Act
 		Fruit apple = new Fruit("Apple", 0.25);
 		Fruit banana = new Fruit("Banana", 0.15);
 
-		totalPrice = totalPrice + apple.getPrice();
-		totalPrice = totalPrice + banana.getPrice();
-
 		fruits.add(apple);
 		fruits.add(banana);
-		
-		//Assert
-		assertEquals(0.40, totalPrice, 0.0);
+
+		for (Fruit fruit : fruits) {
+			sum += fruit.getPrice();
+		}
+		// Assert
+		assertEquals(0.40, sum, 0.0);
 	}
 
 	@Test
 	public void Test_AddAppleAndBananaAndOrangeToBasket() {
 
-		//Arrange
+		// Arrange
 		List<Fruit> fruits = new ArrayList<Fruit>();
-		double totalPrice = 0;
+		double sum = 0;
 
-		//Act
+		// Act
 		Fruit apple = new Fruit("Apple", 0.25);
 		Fruit banana = new Fruit("Banana", 0.15);
 		Fruit orange = new Fruit("Orange", 0.30);
-		
-		totalPrice = totalPrice + apple.getPrice();
-		totalPrice = totalPrice + banana.getPrice();
-		totalPrice = totalPrice + orange.getPrice();
 
 		fruits.add(apple);
 		fruits.add(banana);
+		fruits.add(orange);
 
-		//Assert
-		assertEquals(0.70, totalPrice, 0.0);
+		for (Fruit fruit : fruits) {
+			sum += fruit.getPrice();
+		}
+
+		// Assert
+		assertEquals(0.70, sum, 0.0);
 	}
 
 	@Test
 	public void Test_AddTwoLemonsToBasket() {
 
-		//Arrange
+		// Arrange
 		List<Fruit> fruits = new ArrayList<Fruit>();
-		double totalPrice = 0;
+		double sum = 0;
 
-		//Act
+		// Act
 		Fruit lemon = new Fruit("Lemon", 0.40);
 
-		totalPrice = totalPrice + lemon.getPrice();
-		totalPrice = totalPrice + lemon.getPrice();
-
 		fruits.add(lemon);
 		fruits.add(lemon);
 
-		//Assert
-		assertEquals(0.80, totalPrice, 0.0);
+		for (Fruit fruit : fruits) {
+			sum += fruit.getPrice();
+		}
+
+		// Assert
+		assertEquals(0.80, sum, 0.0);
 	}
 }
